@@ -21,6 +21,12 @@ enable :sessions
     erb :play
   end
 
+  get '/attack' do
+  @player_one = session[:player_one]
+  @player_two = session[:player_two]
+  erb :attack
+end
+
   run! if app_file == $0
 
 end
