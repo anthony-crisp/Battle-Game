@@ -1,8 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rspec'
 gem 'capybara'
-gem 'selenium-webdriver'
-gem 'sinatra'
-gem 'shotgun'
 gem 'pry'
+gem 'rspec'
+gem 'rubocop'
+gem 'selenium-webdriver'
+gem 'shotgun'
+gem 'sinatra'

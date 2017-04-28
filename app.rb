@@ -1,13 +1,12 @@
 require 'sinatra/base'
-
+require './lib/player'
+#
 class Battle < Sinatra::Base
-
-enable :sessions
+  # enable :sessions
 
   get '/' do
     erb :index
   end
-
 
   post '/names' do
     $player_one = Player.new(params[:player_one])
@@ -16,17 +15,17 @@ enable :sessions
   end
 
   get '/play' do
-    @player_one = $player_one.name
-    @player_two = $player_two.name
+    @player_one = $player_one
+    @player_two = $player_two
     erb :play
   end
 
   get '/attack' do
-  @player_one = $player_one.name
-  @player_two = $player_two.name
-  erb :attack
-end
+    @player_one = $player_one
+    @player_two = $player_two
+    @player_two.take_damage
+    erb :attack
+  end
 
-  run! if app_file == $0
-
+  run! if app_file == $PROGRAM_NAME
 end
